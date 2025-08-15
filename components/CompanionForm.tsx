@@ -215,7 +215,7 @@ const CompanionForm = () => {
                     )}
                 />
                 <Button type="submit" className="w-full cursor-pointer">Build Your Companion</Button>
-                 <Button type="submit" disabled={isLoading} className="form-btn">{isLoading ? (
+                 <Button type="submit" disabled={isLoading} className="w-full cursor-pointer">{isLoading ? (
                             <>
                              <Loader2 size={20}
                              className="animate-spin" /> &nbsp;
