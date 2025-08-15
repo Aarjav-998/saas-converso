@@ -170,7 +170,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
                 </div>
             </section>
 
-            <section className="transcript">
+            <section className="transcript border-2 border-red-500 min-h-[200px] min-w-[300px]">
                 <div className="transcript-message no-scrollbar">
                     {messages.map((message, index) => {
                         if (message.role === 'assistant') {
