@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/select"
 import {subjects} from "@/constants";
 import {Textarea} from "@/components/ui/textarea";
-
+import {Loader2} from "lucide-react";
 import {redirect} from "next/navigation";
 import {createCompanion} from "@/lib/actions/companion.actions";
 
@@ -37,6 +37,7 @@ const formSchema = z.object({
 })
 
 const CompanionForm = () => {
+     const [isLoading, setIsLoading] = useState(false);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -214,6 +215,13 @@ const CompanionForm = () => {
                     )}
                 />
                 <Button type="submit" className="w-full cursor-pointer">Build Your Companion</Button>
+                 <Button type="submit" disabled={isLoading} className="form-btn">{isLoading ? (
+                            <>
+                             <Loader2 size={20}
+                             className="animate-spin" /> &nbsp;
+                                Creating New Companion
+                            </>
+                        ): 'Build Your Companion'}</Button>
             </form>
         </Form>
     )
